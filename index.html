@@ -86,11 +86,7 @@
     <div class="spinner-box">
       <div class="loading-taichi rotate">
         
-          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
-            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
-            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
-           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
-          </svg>
+          <img src="/images/loading.png" alt="loading" />
         
       </div>
       
@@ -189,9 +185,18 @@
     
       <picture>
         
+          
+            <source media="(max-width: 479px)" srcset="/images/banner-600w.webp">
+          
+            <source media="(max-width: 799px)" srcset="/images/banner-800w.webp">
+          
+            <source media="(min-width: 800px)" srcset="/images/banner.webp">
+          
+          <img  fetchpriority="high" src="/images/banner.webp" alt="">
+        
       </picture>
       
-        <img  fetchpriority="high" src="/images/banner.webp" alt="">
+        <img alt="" style="visibility: hidden;">
       
     
   
@@ -425,10 +430,44 @@ More info: Writing
       <div class="post-wrapper">
   <div class="post-wrap-right" data-aos="fade-up">
     
-      <a class="post-link" href="/2025/05/25/2025/CP-ABE/" aria-label="CP-ABE"></a>
+      <a class="post-link" href="/2025/05/25/2025/KP-ABE/" aria-label="KP-ABE"></a>
     
     
     <div class="post-cover-right">
+      
+        <img data-src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg6.jpg" data-sizes="auto" alt="KP-ABE" class="lazyload">
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-05-25</span>
+        <span><span class="icon-pencil"></span>345 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
+      </div>
+      <h2 class="post-title">KP-ABE</h2>
+      <article class="post-article">
+        
+           密钥策略属性基加密（KP-ABE, Key-Policy Attribute-Based Encryption）
+KP-ABE 的核心特性在于访问策略由密钥携带，而非密文
+
+
+$(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$
+KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&amp;#x3D; (p, e, G_1, G_2, G_T, g_1, g_2)$
+随机选择一个整数 $\alpha \leftarrow \mathbb{Z}_p$ 和抗碰撞哈希函数 $H: \{0, 1\}^* \right
+        
+      </article>
+    </div>
+  </div>
+</div>
+      
+    
+      <div class="post-wrapper">
+  <div class="post-wrap-left" data-aos="fade-up">
+    
+      <a class="post-link" href="/2025/05/25/2025/CP-ABE/" aria-label="CP-ABE"></a>
+    
+    
+    <div class="post-cover-left">
       
         <img data-src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg4.jpg" data-sizes="auto" alt="CP-ABE" class="lazyload">
       
@@ -457,40 +496,6 @@ $(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$
 </div>
       
     
-      <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
-    
-      <a class="post-link" href="/2025/05/25/2025/KP-ABE/" aria-label="KP-ABE"></a>
-    
-    
-    <div class="post-cover-left">
-      
-        <img data-src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg6.jpg" data-sizes="auto" alt="KP-ABE" class="lazyload">
-      
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2025-05-25</span>
-        <span><span class="icon-pencil"></span>345 字</span>
-        <span><span class="icon-clock"></span>1 分钟</span>
-      </div>
-      <h2 class="post-title">KP-ABE</h2>
-      <article class="post-article">
-        
-           密钥策略属性基加密（KP-ABE, Key-Policy Attribute-Based Encryption）
-KP-ABE 的核心特性在于访问策略由密钥携带，而非密文
-
-
-$(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$
-KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&amp;#x3D; (p, e, G_1, G_2, G_T, g_1, g_2)$
-随机选择一个整数 $\alpha \leftarrow \mathbb{Z}_p$ 和抗碰撞哈希函数 $H: \{0, 1\}^* \right
-        
-      </article>
-    </div>
-  </div>
-</div>
-      
-    
   
 
 
@@ -508,7 +513,7 @@ KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&amp;#x3D; (p, e
       
       
       
-        2020-2025
+        2024-2025
       
       <span class="footer-info-sep rotate"></span>
       Aptx4869AC
@@ -544,7 +549,7 @@ KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&amp;#x3D; (p, e
 
         
           <div class="sidebar-top">
-            <div class="sidebar-top-taichi rotate"></div>
+            <div class="sidebar-top-taichi "></div>
             <div class="arrow-up"></div>
           </div>
         
