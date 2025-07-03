@@ -6,7 +6,7 @@
   <link href="https://aptx4869ac.github.io/atom.xml" rel="self"/>
   
   <link href="https://aptx4869ac.github.io/"/>
-  <updated>2025-07-03T10:58:42.830Z</updated>
+  <updated>2025-07-03T14:09:07.953Z</updated>
   <id>https://aptx4869ac.github.io/</id>
   
   <author>
@@ -17,13 +17,57 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CP-ABE</title>
+    <link href="https://aptx4869ac.github.io/2025/05/25/2025/CP-ABE/"/>
+    <id>https://aptx4869ac.github.io/2025/05/25/2025/CP-ABE/</id>
+    <published>2025-05-24T16:16:18.000Z</published>
+    <updated>2025-07-03T14:09:07.953Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="密文策略属性基加密cp-abe-cipher-policy-attribute-based-encryption"><a class="markdownIt-Anchor" href="#密文策略属性基加密cp-abe-cipher-policy-attribute-based-encryption"></a> 密文策略属性基加密（CP-ABE, Cipher-Policy Attribute-Based Encryption）</h2><ol><li>$(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$</li></ol><p><strong>执行对象：KGC</strong></p><p><strong>本质：系统参数初始化</strong></p><p>运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数: $par :&#x3D; (p, e, G_1, G_2, G_T, g_1, g_2)$</p><p>随机选择一个整数 $\alpha \leftarrow \mathbb{Z}_p$ 和抗碰撞哈希函数 $H: \{0, 1\}^* \rightarrow G_2$。 计算公钥 $pk$ 和主私钥 $msk$ :</p><p>$$pk &#x3D; (par, H, e(g_1, g_2)^{\alpha}), \quad msk &#x3D; \alpha$$</p><ol start="2"><li>$(tk, sk) \leftarrow \text{KeyGen}(pk, msk, \mathcal{S} &#x3D; \{u_i\}_{i \in [m]}) $</li></ol><p><strong>执行对象：KGC</strong></p><p><strong>本质：基于属性集，为用户生成转换密钥（给区块链）和解密密钥（给用户）</strong></p><p>随机选择整数 $r \leftarrow \mathbb{Z}_p$, $\beta \leftarrow \mathbb{Z}_p$计算:</p><p>$$tk_0 &#x3D; g_2^{\frac{\alpha + r}{\beta}}, \quad tk_1 &#x3D; g_1^{\frac{r}{\beta}}, \quad tk_{2, i} &#x3D; H(u_i)^{\frac{r}{\beta}} \\sk &#x3D; \beta$$</p><p>输出 $(tk &#x3D; (\mathcal{S}, tk_0, tk_1, \{tk_{2, i}\}_{i \in [m]}), sk)$</p><ol start="3"><li>$C \leftarrow \text{Enc}(pk, \mathbb{S} &#x3D; (M, \pi, \{\pi(i)\}_{i \in [\ell]}), msg)$</li></ol><p><strong>执行对象：数据所有者</strong></p><p><strong>本质：指定访问策略，加密消息</strong></p><p>选择一个秘密值 $s \leftarrow \mathbb{Z}_p$，随机生成向量 $v \leftarrow \mathbb{Z}_p^{n-1}$ ，计算 $\lambda_{i}&#x3D; M_i(s \| v)^\top$。随机选择 $t_{1}, t_{2},\cdots,t_\ell\in\mathbb{Z}_p$ ，再计算:</p><p>$$ct_{0, i} &#x3D; g_{1}^{t_{i}}, \quad  ct_{1, i} &#x3D; g_{2}^{\lambda_{i}} \cdot H(\pi(i))^{-t_{i}}, \quad ct_2 &#x3D; g_1^s, \quad ct_3 &#x3D; msg \cdot e(g_1, g_2)^{\alpha s}$$</p><p>输出 $C &#x3D; (\mathbb{S}, \{ct_{0, i}, ct_{1, i}\}_{i \in [\ell]}, ct_2, ct_3)$</p><p><strong>按需求打上时间戳，即添加一个 $time$</strong></p><ol start="4"><li>$\text{PTC} &#x2F; \bot \leftarrow \text{PDec}(ct, tk)$</li></ol><p><strong>执行对象：区块链</strong></p><p><strong>本质：取消访问控制层，实现外包部分解密</strong></p><p>使用转换密钥 $tk$ ，如果 $\mathcal{S}$ 满足访问控制策略 $\mathbb{S}$，则存在一个常数集 $\{\omega_i\}_{i \in I}$ 满足条件 $\sum_{i \in I} \omega_iM_i &#x3D; (1, 0, \ldots, 0)$ ，并计算如下式子得到:</p><p>$$\begin{align*}ptc_{0} &amp;&#x3D; \frac{e(ct_2,tk_0)}            {\prod_{i\in I}\left(e(ct_{1, i},tk_1) \cdot e(ct_{0, i},tk_{2, i}\right)^{\omega_i}} \\            &amp;&#x3D; \frac{e(g_{1}^{s},g_2^{\frac{\alpha + r}{\beta}})}{\prod_{i\in I}\left(e(g_{2}^{\lambda_{i}} \cdot H(u_i)^{-t_{i}}, g_1^{\frac{r}{\beta}}) \cdot e(g_{1}^{t_{i}}, H(u_i)^{\frac{r}{\beta}}) \right)^{\omega_i}} \\&amp;&#x3D; \frac{e(g_{1},g_{2})^{\frac{\alpha s}{\beta}} \cdot e(g_1,g_2)^{\frac{r s}{\beta}}}{\prod_{i\in I}\left(e(g_{2}^{\lambda_{i}}, g_1^{\frac{r}{\beta}}) \cdot e(H(u_i)^{-t_{i}}, g_1^{\frac{r}{\beta}}) \cdot e(g_{1}^{t_{i}}, H(u_i)^{\frac{r}{\beta}}) \right)^{\omega_i}} \\&amp;&#x3D; \frac{e(g_{1},g_{2})^{\frac{\alpha s}{\beta}} \cdot e(g_1,g_2)^{\frac{r s}{\beta}}}{\prod_{i\in I}\left(e(g_1,g_2)^{\frac{\lambda_i r}{\beta}}\right)^{\omega_i}} \\&amp;&#x3D; \frac{e(g_{1},g_{2})^{\frac{\alpha s}{\beta}} \cdot e(g_1,g_2)^{\frac{r s}{\beta}}}{e(g_1, g_2)^{\frac{r}{\beta} \cdot \sum_{i\in I}\omega_i\lambda_i}}\\&amp;&#x3D; \frac{e(g_{1},g_{2})^{\frac{\alpha s}{\beta}} \cdot e(g_1,g_2)^{\frac{r s}{\beta}}}{e(g_1, g_2)^{\frac{r s}{\beta}}} \\&amp;&#x3D; e(g_{1},g_{2})^{\frac{\alpha s}{\beta}} \\ \\ptc_{1} &amp;&#x3D;  ct_3\end{align*}$$</p><ol start="5"><li>$msg &#x2F; \bot \leftarrow \text{TDec}(\text{PTC}, sk)$</li></ol><p><strong>执行对象：数据获取者</strong></p><p><strong>本质：解密获取明文消息</strong></p><p>使用私钥 $sk &#x3D; \beta$重构消息 $msg$ 通过计算：</p><p>$$\begin{align*}msg  &amp;&#x3D; ptc_1 &#x2F; (ptc_0)^{\beta} \\     &amp;&#x3D; \frac{msg \cdot e(g_1, g_2)^{\alpha s}}{(e(g_{1},g_{2})^{\frac{\alpha s}{\beta}})^{\beta}} \\\end{align*}$$</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;密文策略属性基加密cp-abe-cipher-policy-attribute-based-encryption&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#密文策略属性基加密cp-abe-cipher-policy-attribut</summary>
+      
+    
+    
+    
+    <category term="专业学习" scheme="https://aptx4869ac.github.io/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>KP-ABE</title>
+    <link href="https://aptx4869ac.github.io/2025/05/25/2025/KP-ABE/"/>
+    <id>https://aptx4869ac.github.io/2025/05/25/2025/KP-ABE/</id>
+    <published>2025-05-24T16:16:18.000Z</published>
+    <updated>2025-07-03T14:09:11.534Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="密钥策略属性基加密kp-abe-key-policy-attribute-based-encryption"><a class="markdownIt-Anchor" href="#密钥策略属性基加密kp-abe-key-policy-attribute-based-encryption"></a> 密钥策略属性基加密（KP-ABE, Key-Policy Attribute-Based Encryption）</h2><p>KP-ABE 的核心特性在于访问策略由密钥携带，而非密文</p><ol><li><p>$(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$</p><p>KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&#x3D; (p, e, G_1, G_2, G_T, g_1, g_2)$</p><p>随机选择一个整数 $\alpha \leftarrow \mathbb{Z}_p$ 和抗碰撞哈希函数 $H: \{0, 1\}^* \rightarrow G_1$.。计算公钥 $pk$ 和主私钥 $msk$ :</p><p>$pk &#x3D; (par, H, e(g_1, g_2)^{\alpha}), \quad msk &#x3D; \alpha.$</p></li><li><p>$sk \leftarrow \text{KeyGen}(pk, msk, \mathcal{S} &#x3D; (M, \pi, \{p(i)\}_{i \in [\ell]}))$</p><p>Data user 随机选择整数 $r \leftarrow \mathbb{Z}_p$, $v \leftarrow \mathbb{Z}_p^{n-1}$，计算:</p><p>$sk_1 &#x3D; g_2^r, \quad sk_{2, i} &#x3D; g_1^{M_i(\alpha \| v)^\top} \cdot H(\pi(i))^{r}$</p><p>输出 $sk &#x3D; (\mathcal{S}, sk_1, \{sk_{2, i}\}_{i \in [\ell]})$.</p></li><li><p>$\text{ct} \leftarrow \text{Enc}(pk, \mathbb{S} &#x3D; \{u_i\}_{i \in [m]}, msg)$</p><p>Data owner 随机生成一个秘密值 $s \leftarrow \mathbb{Z}_p$， 计算:</p><p>$ct_{1, i} &#x3D; H(u_i)^s, \quad ct_2 &#x3D; g_2^s, \quad ct_3 &#x3D; msg \cdot e(g_1, g_2)^{\alpha s}$</p><p>输出 $ct &#x3D; (\mathbb{S}, \{ct_{1, i}\}_{i \in [m]}, ct_2, ct_3)$.</p></li><li><p>$msg &#x2F; \bot \leftarrow \text{Dec}(ct, sk)$</p><p>如果 $\mathcal{S}$ 满足访问控制策略 $\mathbb{S}$，则存在一个常数集 $\{\gamma_i\}_{i \in I}$ 满足条件 $\sum_{i \in I} \gamma_i M_i &#x3D; (1, 0, \ldots, 0)$ 重构消息 $msg$，通过计算:</p></li></ol><p>$$msg &#x3D; \frac{e\left(\prod_{i \in I} (ct_{1, \pi(i)})^{\gamma_i}, sk_1\right) \cdot ct_3}{e\left(\prod_{i \in I} (sk_{2, i})^{\gamma_i}, ct_2\right)}$$</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;密钥策略属性基加密kp-abe-key-policy-attribute-based-encryption&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#密钥策略属性基加密kp-abe-key-policy-attribute-base</summary>
+      
+    
+    
+    
+    <category term="专业学习" scheme="https://aptx4869ac.github.io/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>你好世界</title>
     <link href="https://aptx4869ac.github.io/2023/12/25/2025/hello-world/"/>
     <id>https://aptx4869ac.github.io/2023/12/25/2025/hello-world/</id>
     <published>2023-12-24T16:16:18.000Z</published>
-    <updated>2025-07-03T10:58:42.830Z</updated>
+    <updated>2025-07-03T13:49:09.008Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2><h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
       
@@ -34,46 +78,6 @@
     
     
     <category term="随笔杂谈" scheme="https://aptx4869ac.github.io/categories/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>测试1</title>
-    <link href="https://aptx4869ac.github.io/2023/12/25/2025/text1/"/>
-    <id>https://aptx4869ac.github.io/2023/12/25/2025/text1/</id>
-    <published>2023-12-24T16:16:18.000Z</published>
-    <updated>2025-07-03T08:52:41.651Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>测试2</title>
-    <link href="https://aptx4869ac.github.io/2023/12/25/2025/text2/"/>
-    <id>https://aptx4869ac.github.io/2023/12/25/2025/text2/</id>
-    <published>2023-12-24T16:16:18.000Z</published>
-    <updated>2025-07-03T08:52:39.631Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
     
     
   </entry>

@@ -17,7 +17,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)","zh-CN":"复制成功 (*^▽^*)","zh-TW":"複製成功 (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-TW":"複製失敗 (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://Aptx4869AC.github.io';</script>
   
   <title>
-    测试2 |
+    CP-ABE |
     
     Aptx4869AC&#39;s Blog
   </title>
@@ -35,15 +35,15 @@
 
   
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="密文策略属性基加密（CP-ABE, Cipher-Policy Attribute-Based Encryption）  $(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$  执行对象：KGC 本质：系统参数初始化 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数: $par :&#x3D; (p, e, G_1, G_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试2">
-<meta property="og:url" content="https://aptx4869ac.github.io/2023/12/25/2025/text2/index.html">
+<meta property="og:title" content="CP-ABE">
+<meta property="og:url" content="https://aptx4869ac.github.io/2025/05/25/2025/CP-ABE/index.html">
 <meta property="og:site_name" content="Aptx4869AC&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="密文策略属性基加密（CP-ABE, Cipher-Policy Attribute-Based Encryption）  $(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$  执行对象：KGC 本质：系统参数初始化 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数: $par :&#x3D; (p, e, G_1, G_">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-24T16:16:18.000Z">
-<meta property="article:modified_time" content="2025-07-03T08:52:39.631Z">
+<meta property="article:published_time" content="2025-05-24T16:16:18.000Z">
+<meta property="article:modified_time" content="2025-07-03T14:09:07.953Z">
 <meta property="article:author" content="Aptx4869AC">
 <meta name="twitter:card" content="summary">
   
@@ -58,12 +58,6 @@
 
   <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
   
-    
-      
-        
-<link rel="stylesheet" href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l&#x2F;9On385z&#x2F;&#x2F;&#x2F;+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
-
-      
     
   
   
@@ -106,7 +100,7 @@
       
         
       
-      <div class="loading-word">少女祈祷中...</div>
+      <div class="loading-word">异世界加载中...</div>
     </div>
   </div>
   </div>
@@ -195,16 +189,8 @@
 </div>
 <header id="header">
   
-    
-      
-        <picture>
-          
-        </picture>
-        
-          <img  fetchpriority="high" src="/images/banner.webp" alt="测试2">
-        
-      
-    
+    <picture></picture>
+    <img  fetchpriority="high" src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg4.jpg" alt="CP-ABE">
   
   <div id="header-outer">
     <div id="header-title">
@@ -212,7 +198,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">测试2</h1>
+            <h1 data-aos="slide-up">CP-ABE</h1>
           </a>
         
       
@@ -256,7 +242,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E6%96%87%E7%AD%96%E7%95%A5%E5%B1%9E%E6%80%A7%E5%9F%BA%E5%8A%A0%E5%AF%86cp-abe-cipher-policy-attribute-based-encryption"><span class="toc-number">1.</span> <span class="toc-text"> 密文策略属性基加密（CP-ABE, Cipher-Policy Attribute-Based Encryption）</span></a></li></ol>
       
   </div>
 </div>
@@ -273,7 +259,7 @@
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">1</div>
+    <div class="sidebar-state-number">2</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
@@ -348,17 +334,21 @@
   
 </aside>
 
-          <section id="main"><article id="post-2025/text2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-2025/CP-ABE" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2023-12-24T16:16:18.000Z" itemprop="datePublished">2023-12-25</time>
+    <time datetime="2025-05-24T16:16:18.000Z" itemprop="datePublished">2025-05-25</time>
     <time style="display: none;" id="post-update-time">2025-07-03</time>
   </span>
 </div>
 
       
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/" data-aos="zoom-in">专业学习</a>
+  </div>
+
 
     </div>
     <div class="hr-line"></div>
@@ -367,20 +357,74 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+        <h2 id="密文策略属性基加密cp-abe-cipher-policy-attribute-based-encryption"><a class="markdownIt-Anchor" href="#密文策略属性基加密cp-abe-cipher-policy-attribute-based-encryption"></a> 密文策略属性基加密（CP-ABE, Cipher-Policy Attribute-Based Encryption）</h2>
+<ol>
+<li>$(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$</li>
+</ol>
+<p><strong>执行对象：KGC</strong></p>
+<p><strong>本质：系统参数初始化</strong></p>
+<p>运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数: $par :&#x3D; (p, e, G_1, G_2, G_T, g_1, g_2)$</p>
+<p>随机选择一个整数 $\alpha \leftarrow \mathbb{Z}_p$ 和抗碰撞哈希函数 $H: \{0, 1\}^* \rightarrow G_2$。 计算公钥 $pk$ 和主私钥 $msk$ :</p>
+<p>$$pk &#x3D; (par, H, e(g_1, g_2)^{\alpha}), \quad msk &#x3D; \alpha
+$$</p><ol start="2">
+<li>$(tk, sk) \leftarrow \text{KeyGen}(pk, msk, \mathcal{S} &#x3D; \{u_i\}_{i \in [m]}) $</li>
+</ol>
+<p><strong>执行对象：KGC</strong></p>
+<p><strong>本质：基于属性集，为用户生成转换密钥（给区块链）和解密密钥（给用户）</strong></p>
+<p>随机选择整数 $r \leftarrow \mathbb{Z}_p$, $\beta \leftarrow \mathbb{Z}_p$计算:</p>
+<p>$$tk_0 &#x3D; g_2^{\frac{\alpha + r}{\beta}}, \quad tk_1 &#x3D; g_1^{\frac{r}{\beta}}, \quad tk_{2, i} &#x3D; H(u_i)^{\frac{r}{\beta}} \\
+sk &#x3D; \beta
+$$</p><p>输出 $(tk &#x3D; (\mathcal{S}, tk_0, tk_1, \{tk_{2, i}\}_{i \in [m]}), sk)$</p>
+<ol start="3">
+<li>$C \leftarrow \text{Enc}(pk, \mathbb{S} &#x3D; (M, \pi, \{\pi(i)\}_{i \in [\ell]}), msg)$</li>
+</ol>
+<p><strong>执行对象：数据所有者</strong></p>
+<p><strong>本质：指定访问策略，加密消息</strong></p>
+<p>选择一个秘密值 $s \leftarrow \mathbb{Z}_p$，随机生成向量 $v \leftarrow \mathbb{Z}_p^{n-1}$ ，计算 $\lambda_{i}&#x3D; M_i(s \| v)^\top$。随机选择 $t_{1}, t_{2},\cdots,t_\ell\in\mathbb{Z}_p$ ，再计算:</p>
+<p>$$ct_{0, i} &#x3D; g_{1}^{t_{i}}, \quad  ct_{1, i} &#x3D; g_{2}^{\lambda_{i}} \cdot H(\pi(i))^{-t_{i}}, \quad ct_2 &#x3D; g_1^s, \quad ct_3 &#x3D; msg \cdot e(g_1, g_2)^{\alpha s}
+$$</p><p>输出 $C &#x3D; (\mathbb{S}, \{ct_{0, i}, ct_{1, i}\}_{i \in [\ell]}, ct_2, ct_3)$</p>
+<p><strong>按需求打上时间戳，即添加一个 $time$</strong></p>
+<ol start="4">
+<li>$\text{PTC} &#x2F; \bot \leftarrow \text{PDec}(ct, tk)$</li>
+</ol>
+<p><strong>执行对象：区块链</strong></p>
+<p><strong>本质：取消访问控制层，实现外包部分解密</strong></p>
+<p>使用转换密钥 $tk$ ，如果 $\mathcal{S}$ 满足访问控制策略 $\mathbb{S}$，则存在一个常数集 $\{\omega_i\}_{i \in I}$ 满足条件 $\sum_{i \in I} \omega_iM_i &#x3D; (1, 0, \ldots, 0)$ ，并计算如下式子得到:</p>
+<p>$$\begin{align*}
+ptc_{0} &amp;&#x3D; \frac{e(ct_2,tk_0)}
+            {\prod_{i\in I}\left(e(ct_{1, i},tk_1) \cdot e(ct_{0, i},tk_{2, i}\right)^{\omega_i}} \\
+            
+	&amp;&#x3D; \frac{e(g_{1}^{s},g_2^{\frac{\alpha + r}{\beta}})}
+			{\prod_{i\in I}\left(e(g_{2}^{\lambda_{i}} \cdot H(u_i)^{-t_{i}}, g_1^{\frac{r}{\beta}}) \cdot e(g_{1}^{t_{i}}, H(u_i)^{\frac{r}{\beta}}) \right)^{\omega_i}} \\
+			
+	&amp;&#x3D; \frac{e(g_{1},g_{2})^{\frac{\alpha s}{\beta}} \cdot e(g_1,g_2)^{\frac{r s}{\beta}}}
+			{\prod_{i\in I}\left(e(g_{2}^{\lambda_{i}}, g_1^{\frac{r}{\beta}}) \cdot e(H(u_i)^{-t_{i}}, g_1^{\frac{r}{\beta}}) \cdot e(g_{1}^{t_{i}}, H(u_i)^{\frac{r}{\beta}}) \right)^{\omega_i}} \\
+			
+	&amp;&#x3D; \frac{e(g_{1},g_{2})^{\frac{\alpha s}{\beta}} \cdot e(g_1,g_2)^{\frac{r s}{\beta}}}
+			{\prod_{i\in I}\left(e(g_1,g_2)^{\frac{\lambda_i r}{\beta}}\right)^{\omega_i}} \\
+			
+	&amp;&#x3D; \frac{e(g_{1},g_{2})^{\frac{\alpha s}{\beta}} \cdot e(g_1,g_2)^{\frac{r s}{\beta}}}
+			{e(g_1, g_2)^{\frac{r}{\beta} \cdot \sum_{i\in I}\omega_i\lambda_i}}\\
+			
+	&amp;&#x3D; \frac{e(g_{1},g_{2})^{\frac{\alpha s}{\beta}} \cdot e(g_1,g_2)^{\frac{r s}{\beta}}}
+			{e(g_1, g_2)^{\frac{r s}{\beta}}} \\
+			
+	&amp;&#x3D; e(g_{1},g_{2})^{\frac{\alpha s}{\beta}} \\ \\
+	
+	
+ptc_{1} &amp;&#x3D;  ct_3
+\end{align*}
+$$</p><ol start="5">
+<li>$msg &#x2F; \bot \leftarrow \text{TDec}(\text{PTC}, sk)$</li>
+</ol>
+<p><strong>执行对象：数据获取者</strong></p>
+<p><strong>本质：解密获取明文消息</strong></p>
+<p>使用私钥 $sk &#x3D; \beta$重构消息 $msg$ 通过计算：</p>
+<p>$$\begin{align*}
+msg  &amp;&#x3D; ptc_1 &#x2F; (ptc_0)^{\beta} \\
+     &amp;&#x3D; \frac{msg \cdot e(g_1, g_2)^{\alpha s}}{(e(g_{1},g_{2})^{\frac{\alpha s}{\beta}})^{\beta}} \\
+\end{align*}
+$$</p>
       
     </div>
     <footer class="article-footer">
@@ -389,13 +433,13 @@
       
         <div class="share-wrapper">
   
-    <a href="https://connect.qq.com/widget/shareqq/index.html?url=www.baidu.com&amp;title=%E6%B5%8B%E8%AF%952&amp;desc=%E6%B5%8B%E8%AF%952&amp;source=https%3A%2F%2FAptx4869AC.github.io" target="_blank" rel="noopener noreferrer" title="测试2">
+    <a href="https://connect.qq.com/widget/shareqq/index.html?url=www.baidu.com&amp;title=CP-ABE&amp;desc=CP-ABE&amp;source=https%3A%2F%2FAptx4869AC.github.io" target="_blank" rel="noopener noreferrer" title="CP-ABE">
       <div class="share-icon icon icon-qq">
         
       </div>
     </a>
   
-    <a href="javascript:;"  title="测试2">
+    <a href="javascript:;"  title="CP-ABE">
       <div class="share-icon icon icon-weixin">
         
           <div id="share-weixin">
@@ -433,23 +477,20 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/covers/categories\categories3.jpg" data-sizes="auto" alt="测试1" class="lazyload">
-          
-        
-        <a href="/2023/12/25/2025/text1/"></a>
-        <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">
-          
-            测试1
-          
-        </h3>
-      </div>
     
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        <img data-src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg6.jpg" data-sizes="auto" alt="KP-ABE" class="lazyload">
+      
+      <a href="/2025/05/25/2025/KP-ABE/"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+        
+          KP-ABE
+        
+      </h3>
+    </div>
     
   </nav>
 
@@ -492,10 +533,10 @@
     
       <div>
         <span class="icon-brush"></span>
-        225
+        1.2k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        00:03
+        00:06
       </div>
     
     
@@ -528,7 +569,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E6%96%87%E7%AD%96%E7%95%A5%E5%B1%9E%E6%80%A7%E5%9F%BA%E5%8A%A0%E5%AF%86cp-abe-cipher-policy-attribute-based-encryption"><span class="toc-number">1.</span> <span class="toc-text"> 密文策略属性基加密（CP-ABE, Cipher-Policy Attribute-Based Encryption）</span></a></li></ol>
       
   </div>
 </div>
@@ -545,7 +586,7 @@
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
-    <div class="sidebar-state-number">1</div>
+    <div class="sidebar-state-number">2</div>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
@@ -694,14 +735,14 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Aptx4869AC",
-          title: "测试2",
-          url: "https://aptx4869ac.github.io/2023/12/25/2025/text2/",
+          title: "CP-ABE",
+          url: "https://aptx4869ac.github.io/2025/05/25/2025/CP-ABE/",
           excerpt: "",
           description: "",
-          stripContent: "Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &amp;quot;My New Po",
-          date: "Mon Dec 25 2023 00:16:18 GMT+0800",
-          updated: "Thu Jul 03 2025 16:52:39 GMT+0800",
-          cover: "/images/banner.webp",
+          stripContent: " 密文策略属性基加密（CP-ABE, Cipher-Policy Attribute-Based Encryption）  $(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$  执行对象：KGC 本质：系统参数初始化 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数: $par :&amp;#x3D; (p, e, G_1, G_2, G_T, g_1, g_2)$ 随机选择一个整数 $\alpha \leftarrow \ma",
+          date: "Sun May 25 2025 00:16:18 GMT+0800",
+          updated: "Thu Jul 03 2025 22:09:07 GMT+0800",
+          cover: "https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg4.jpg",
         };
       </script>
        
@@ -798,6 +839,13 @@
 
 
 
+  
+    
+<script src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6&#x2F;1Nxveei" crossorigin="anonymous" defer data-pjax></script>
+
+    <script data-pjax>
+      window.MathJax = {"tex":{"tags":"ams","useLabelIds":true,"inlineMath":[["$","$"],["\\\\(","\\\\)"]],"displayMath":[["$$","$$"],["\\\\[","\\\\]"]],"processEscapes":true,"processEnvironments":true,"autoload":{"color":[],"colorv2":["color"]},"packages":{"[+]":["noerrors"]}},"options":{"skipHtmlTags":["script","noscript","style","textarea","pre","code"],"ignoreHtmlClass":"tex2jax_ignore","processHtmlClass":"tex2jax_process"},"loader":{"load":["input/asciimath","[tex]/noerrors"]}};
+    </script>
   
 
 

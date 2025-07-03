@@ -1,6 +1,6 @@
 :root {
   --red-0: #0B2545;
-  --red-1: #13315C;
+  --red-1: #3B82F6;
   --red-2: #184379;
   --red-3: #205394;
   --red-4: #4D7CFF;
@@ -54,10 +54,10 @@
 }
 [data-theme="dark"]:root {
   --red-0: var(--red-1);
-  --red-4: rgba(255, 208, 208, 0.5);
-  --red-5: rgba(255,228,228,0.15);
-  --red-5-5: rgba(255,236,236,0.05);
-  --red-6: rgba(255, 243, 243, 0.2);
+  --red-4: #60A5FA;
+  --red-5: #93C5FD;
+  --red-5-5: #BFDBFE;
+  --red-6: #DBEAFE;
   --color-archive-year: #999;
   --color-default: #999;
   --color-border: var(--red-5);
@@ -70,20 +70,20 @@
   --color-h2-border: #47474a;
   --color-meta-shadow: rgba(0,0,0,0.2);
   --color-hover-shadow: rgba(0,0,0,0.2);
-  --highlight-nav: #2e353f;
-  --highlight-scrollbar: #454d59;
-  --highlight-background: #22272e;
-  --highlight-current-line: #393939;
-  --highlight-selection: #515151;
-  --highlight-foreground: #cccccc;
-  --highlight-comment: #999999;
-  --highlight-red: #f47067;
-  --highlight-orange: #f69d50;
-  --highlight-yellow: #ffcc66;
-  --highlight-green: #99cc99;
-  --highlight-aqua: #66cccc;
-  --highlight-blue: #54b6ff;
-  --highlight-purple: #dcbdfb;
+  --highlight-nav: #1E293B;
+  --highlight-scrollbar: #334155;
+  --highlight-background: #0F172A;
+  --highlight-current-line: #1E293B;
+  --highlight-selection: #3B82F6;
+  --highlight-foreground: #F8FAFC;
+  --highlight-comment: #94A3B8;
+  --highlight-red: #FCA5A5;
+  --highlight-orange: #FDBA74;
+  --highlight-yellow: #FDE68A;
+  --highlight-green: #A7F3D0;
+  --highlight-aqua: #99F6E4;
+  --highlight-blue: #93C5FD;
+  --highlight-purple: #C7D2FE;
 }
 [data-theme="dark"]:root img {
   filter: brightness(70%);
@@ -1353,29 +1353,15 @@ button {
   max-width: 100%;
   margin: 0 auto;
 }
-.katex-display {
+mjx-container {
+  display: inline-grid;
   overflow-x: auto;
   overflow-y: hidden;
+  max-width: 100%;
+  min-width: auto !important;
 }
-.katex-display::-webkit-scrollbar {
+mjx-container::-webkit-scrollbar {
   display: none;
-}
-.katex {
-  width: calc(100% - 2px);
-}
-.katex-html {
-  padding: 3px;
-}
-.katex-html .base {
-  margin: 0 auto;
-}
-.katex-html:has(span.tag) {
-  display: flex !important;
-}
-.katex-display>.katex>.katex-html>.tag {
-  position: relative !important;
-  float: right;
-  margin-left: 0.25rem;
 }
 .post-link {
   position: absolute;
