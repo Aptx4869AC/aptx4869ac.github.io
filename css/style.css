@@ -134,19 +134,16 @@ body [data-aos='zoom-in'] {
   }
 }
 .article-entry h1,
-.gt-header-preview.markdown-body h1,
-.gt-comment-content .gt-comment-body.markdown-body h1 {
+.wl-content h1 {
   font-size: 2em;
 }
 .article-entry h2,
-.gt-header-preview.markdown-body h2,
-.gt-comment-content .gt-comment-body.markdown-body h2 {
+.wl-content h2 {
   font-size: 1.5em;
   position: relative;
 }
 .article-entry h2:before,
-.gt-header-preview.markdown-body h2:before,
-.gt-comment-content .gt-comment-body.markdown-body h2:before {
+.wl-content h2:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -156,8 +153,7 @@ body [data-aos='zoom-in'] {
   transition: 1s;
 }
 .article-entry h2:after,
-.gt-header-preview.markdown-body h2:after,
-.gt-comment-content .gt-comment-body.markdown-body h2:after {
+.wl-content h2:after {
   content: "";
   position: absolute;
   background: var(--color-h2-after);
@@ -170,34 +166,28 @@ body [data-aos='zoom-in'] {
   transition: 0.3s;
 }
 .article-entry h2:hover:after,
-.gt-header-preview.markdown-body h2:hover:after,
-.gt-comment-content .gt-comment-body.markdown-body h2:hover:after {
+.wl-content h2:hover:after {
   width: 3em;
 }
 .article-entry h3,
-.gt-header-preview.markdown-body h3,
-.gt-comment-content .gt-comment-body.markdown-body h3 {
+.wl-content h3 {
   font-size: 1.3em;
 }
 .article-entry h4,
-.gt-header-preview.markdown-body h4,
-.gt-comment-content .gt-comment-body.markdown-body h4 {
+.wl-content h4 {
   font-size: 1.2em;
 }
 .article-entry h5,
-.gt-header-preview.markdown-body h5,
-.gt-comment-content .gt-comment-body.markdown-body h5 {
+.wl-content h5 {
   font-size: 1em;
 }
 .article-entry h6,
-.gt-header-preview.markdown-body h6,
-.gt-comment-content .gt-comment-body.markdown-body h6 {
+.wl-content h6 {
   font-size: 1em;
   color: var(--grey-9);
 }
 .article-entry hr,
-.gt-header-preview.markdown-body hr,
-.gt-comment-content .gt-comment-body.markdown-body hr {
+.wl-content hr {
   margin: 10px 0;
   opacity: 0.3;
   height: 4px;
@@ -209,98 +199,77 @@ body [data-aos='zoom-in'] {
   transition: opacity 0.3s, color 0.3s;
 }
 .article-entry hr:hover,
-.gt-header-preview.markdown-body hr:hover,
-.gt-comment-content .gt-comment-body.markdown-body hr:hover {
+.wl-content hr:hover {
   opacity: 0.5;
 }
 .article-entry strong,
-.gt-header-preview.markdown-body strong,
-.gt-comment-content .gt-comment-body.markdown-body strong {
+.wl-content strong {
   font-weight: bold;
 }
 .article-entry em,
-.gt-header-preview.markdown-body em,
-.gt-comment-content .gt-comment-body.markdown-body em,
+.wl-content em,
 .article-entry cite,
-.gt-header-preview.markdown-body cite,
-.gt-comment-content .gt-comment-body.markdown-body cite {
+.wl-content cite {
   font-style: italic;
 }
 .article-entry sup,
-.gt-header-preview.markdown-body sup,
-.gt-comment-content .gt-comment-body.markdown-body sup,
+.wl-content sup,
 .article-entry sub,
-.gt-header-preview.markdown-body sub,
-.gt-comment-content .gt-comment-body.markdown-body sub {
+.wl-content sub {
   font-size: 0.75em;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 .article-entry sup,
-.gt-header-preview.markdown-body sup,
-.gt-comment-content .gt-comment-body.markdown-body sup {
+.wl-content sup {
   top: -0.5em;
 }
 .article-entry sub,
-.gt-header-preview.markdown-body sub,
-.gt-comment-content .gt-comment-body.markdown-body sub {
+.wl-content sub {
   bottom: -0.2em;
 }
 .article-entry small,
-.gt-header-preview.markdown-body small,
-.gt-comment-content .gt-comment-body.markdown-body small {
+.wl-content small {
   font-size: 0.85em;
 }
 .article-entry acronym,
-.gt-header-preview.markdown-body acronym,
-.gt-comment-content .gt-comment-body.markdown-body acronym,
+.wl-content acronym,
 .article-entry abbr,
-.gt-header-preview.markdown-body abbr,
-.gt-comment-content .gt-comment-body.markdown-body abbr {
+.wl-content abbr {
   text-decoration: none;
   border-bottom: 1px dotted;
 }
 .article-entry ul,
-.gt-header-preview.markdown-body ul,
-.gt-comment-content .gt-comment-body.markdown-body ul,
+.wl-content ul,
 .article-entry ol,
-.gt-header-preview.markdown-body ol,
-.gt-comment-content .gt-comment-body.markdown-body ol,
+.wl-content ol,
 .article-entry dl,
-.gt-header-preview.markdown-body dl,
-.gt-comment-content .gt-comment-body.markdown-body dl {
+.wl-content dl {
   margin: 0 20px;
   line-height: 1.8em;
 }
 .article-entry ul ul,
-.gt-header-preview.markdown-body ul ul,
-.gt-comment-content .gt-comment-body.markdown-body ul ul,
+.wl-content ul ul,
 .article-entry ol ul,
-.gt-header-preview.markdown-body ol ul,
-.gt-comment-content .gt-comment-body.markdown-body ol ul,
+.wl-content ol ul,
 .article-entry ul ol,
-.gt-header-preview.markdown-body ul ol,
-.gt-comment-content .gt-comment-body.markdown-body ul ol,
+.wl-content ul ol,
 .article-entry ol ol,
-.gt-header-preview.markdown-body ol ol,
-.gt-comment-content .gt-comment-body.markdown-body ol ol {
+.wl-content ol ol {
   margin-top: 0;
   margin-bottom: 0;
 }
 .article-entry ul,
-.gt-header-preview.markdown-body ul,
-.gt-comment-content .gt-comment-body.markdown-body ul {
+.wl-content ul {
   list-style: disc;
 }
 .article-entry ol,
-.gt-header-preview.markdown-body ol,
-.gt-comment-content .gt-comment-body.markdown-body ol {
+.wl-content ol {
   list-style: decimal;
 }
 .article-entry dt,
-.gt-header-preview.markdown-body dt,
-.gt-comment-content .gt-comment-body.markdown-body dt {
+.wl-content dt {
   font-weight: bold;
 }
 @font-face {
@@ -1750,134 +1719,86 @@ mjx-container::-webkit-scrollbar {
   color: #fff;
   background-color: var(--red-1);
 }
-.gitalk-comment {
+.wl-emoji-popup {
+  max-width: calc(100vw - 90px) !important;
+}
+.wl-count {
   color: var(--color-default);
 }
-.gt-header-comment .gt-header-preview.markdown-body h2,
-.gt-comment-content .gt-comment-body.markdown-body h2,
-.gt-header-comment .gt-header-preview.markdown-body h1,
-.gt-comment-content .gt-comment-body.markdown-body h1 {
-  border-bottom: none;
+.wl-header input {
+  font-size: revert !important;
 }
-.gt-header-comment .gt-header-preview.markdown-body table,
-.gt-comment-content .gt-comment-body.markdown-body table {
-  display: table;
+.wl-panel {
+  margin: 0.5em 0 !important;
 }
-.gt-header-comment .gt-header-preview.markdown-body table tr,
-.gt-comment-content .gt-comment-body.markdown-body table tr {
-  background-color: transparent !important;
-  border: none;
+.wl-action,
+.wl-sort li {
+  cursor: var(--cursor-pointer) !important;
 }
-.gt-header-comment .gt-header-preview.markdown-body table th,
-.gt-comment-content .gt-comment-body.markdown-body table th {
-  border: none;
-  border-bottom: 3px solid var(--color-border);
+.wl-header label {
+  cursor: var(--cursor-default) !important;
 }
-.gt-header-comment .gt-header-preview.markdown-body table td,
-.gt-comment-content .gt-comment-body.markdown-body table td {
-  border: none;
-  border-bottom: 1px solid var(--color-border);
-}
-.gt-header-textarea {
-  background-color: var(--red-6) !important;
-  color: var(--color-default);
-}
-.gt-container .gt-header-comment {
-  width: 100%;
-}
-.gt-container .gt-header-preview,
-.gt-container .gt-comment-content {
-  background-color: var(--color-wrap) !important;
-}
-.gt-container .gt-comment-content:hover {
-  box-shadow: none !important;
-}
-.gt-container .gt-popup {
-  background-color: var(--color-wrap) !important;
-}
-.gt-header-preview.markdown-body,
-.gt-comment-content .gt-comment-body.markdown-body {
+.wl-content {
   color: var(--color-default) !important;
 }
-.gt-header-preview.markdown-body p,
-.gt-comment-content .gt-comment-body.markdown-body p,
-.gt-header-preview.markdown-body table,
-.gt-comment-content .gt-comment-body.markdown-body table {
+.wl-content p,
+.wl-content table {
   line-height: 1.8em;
   margin: 1.2em 0;
 }
-.gt-header-preview.markdown-body h1,
-.gt-comment-content .gt-comment-body.markdown-body h1,
-.gt-header-preview.markdown-body h2,
-.gt-comment-content .gt-comment-body.markdown-body h2,
-.gt-header-preview.markdown-body h3,
-.gt-comment-content .gt-comment-body.markdown-body h3,
-.gt-header-preview.markdown-body h4,
-.gt-comment-content .gt-comment-body.markdown-body h4,
-.gt-header-preview.markdown-body h5,
-.gt-comment-content .gt-comment-body.markdown-body h5,
-.gt-header-preview.markdown-body h6,
-.gt-comment-content .gt-comment-body.markdown-body h6 {
+.wl-content h1,
+.wl-content h2,
+.wl-content h3,
+.wl-content h4,
+.wl-content h5,
+.wl-content h6 {
   font-weight: bold;
   line-height: 1.2em;
   margin: 1.2em 0 0.8em;
 }
-.gt-header-preview.markdown-body h2,
-.gt-comment-content .gt-comment-body.markdown-body h2 {
+.wl-content h2 {
   margin-bottom: 40px;
 }
-.gt-header-preview.markdown-body a,
-.gt-comment-content .gt-comment-body.markdown-body a {
+.wl-content a {
   color: var(--color-link);
   text-decoration: none;
   word-break: break-word;
 }
-.gt-header-preview.markdown-body a:hover,
-.gt-comment-content .gt-comment-body.markdown-body a:hover {
+.wl-content a:hover {
   text-decoration: underline;
 }
-.gt-header-preview.markdown-body ul,
-.gt-comment-content .gt-comment-body.markdown-body ul,
-.gt-header-preview.markdown-body ol,
-.gt-comment-content .gt-comment-body.markdown-body ol,
-.gt-header-preview.markdown-body dl,
-.gt-comment-content .gt-comment-body.markdown-body dl {
+.wl-content ul,
+.wl-content ol,
+.wl-content dl {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
 }
-.gt-header-preview.markdown-body li:hover::marker,
-.gt-comment-content .gt-comment-body.markdown-body li:hover::marker {
+.wl-content li:hover::marker {
   transition: color 0.2s;
   color: var(--red-1);
 }
-.gt-header-preview.markdown-body img,
-.gt-comment-content .gt-comment-body.markdown-body img,
-.gt-header-preview.markdown-body video,
-.gt-comment-content .gt-comment-body.markdown-body video {
+.wl-content img,
+.wl-content video {
   max-width: 100%;
   height: auto;
   display: block;
   margin: auto;
 }
-.gt-header-preview.markdown-body table,
-.gt-comment-content .gt-comment-body.markdown-body table {
+.wl-content table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
 }
-.gt-header-preview.markdown-body th,
-.gt-comment-content .gt-comment-body.markdown-body th {
+.wl-content th {
   font-weight: bold;
   border-bottom: 3px solid var(--color-border);
   padding-bottom: 0.5em;
 }
-.gt-header-preview.markdown-body td,
-.gt-comment-content .gt-comment-body.markdown-body td {
+.wl-content td {
   border-bottom: 1px solid var(--color-border);
   padding: 10px 0;
 }
-.gt-header-preview.markdown-body blockquote,
-.gt-comment-content .gt-comment-body.markdown-body blockquote {
+.wl-content blockquote {
   background: var(--red-5-5);
   border-left: 6px var(--red-4) solid !important;
   margin: 1.2em 0 !important;
@@ -1886,34 +1807,28 @@ mjx-container::-webkit-scrollbar {
   padding: 1px 10px !important;
   box-shadow: var(--shadow-meta);
 }
-.gt-header-preview.markdown-body blockquote:hover,
-.gt-comment-content .gt-comment-body.markdown-body blockquote:hover {
+.wl-content blockquote:hover {
   box-shadow: var(--shadow-meta-hover);
 }
-.gt-header-preview.markdown-body blockquote footer,
-.gt-comment-content .gt-comment-body.markdown-body blockquote footer {
+.wl-content blockquote footer {
   font-size: 14px;
   margin: 1.8em 0;
 }
-.gt-header-preview.markdown-body blockquote footer cite:before,
-.gt-comment-content .gt-comment-body.markdown-body blockquote footer cite:before {
+.wl-content blockquote footer cite:before {
   content: "—";
   padding: 0 0.5em;
 }
-.gt-header-preview.markdown-body details,
-.gt-comment-content .gt-comment-body.markdown-body details {
+.wl-content details {
   padding: 18px 12px;
   border-radius: 10px;
   background-color: var(--red-5-5);
   box-shadow: var(--shadow-meta);
   transition: 0.3s;
 }
-.gt-header-preview.markdown-body details:hover,
-.gt-comment-content .gt-comment-body.markdown-body details:hover {
+.wl-content details:hover {
   box-shadow: var(--shadow-meta-hover);
 }
-.gt-header-preview.markdown-body summary,
-.gt-comment-content .gt-comment-body.markdown-body summary {
+.wl-content summary {
   font-size: 1.1em;
   font-weight: bold;
   cursor: var(--cursor-pointer) !important;
@@ -1922,42 +1837,34 @@ mjx-container::-webkit-scrollbar {
   border-radius: 10px;
   transition: 0.3s;
 }
-.gt-header-preview.markdown-body summary:hover,
-.gt-comment-content .gt-comment-body.markdown-body summary:hover {
+.wl-content summary:hover {
   background-color: var(--red-5);
 }
-.gt-header-preview.markdown-body details[open] summary,
-.gt-comment-content .gt-comment-body.markdown-body details[open] summary {
+.wl-content details[open] summary {
   background-color: var(--red-5);
 }
-.gt-header-preview.markdown-body details[open] summary:hover,
-.gt-comment-content .gt-comment-body.markdown-body details[open] summary:hover {
+.wl-content details[open] summary:hover {
   background-color: var(--red-5);
 }
-.gt-header-preview.markdown-body details p,
-.gt-comment-content .gt-comment-body.markdown-body details p {
+.wl-content details p {
   margin: 20px 0 0;
   padding: 10px;
   background-color: var(--color-footer-background);
   border-radius: 10px;
   transition: 0.3s;
 }
-.gt-header-preview.markdown-body hr,
-.gt-comment-content .gt-comment-body.markdown-body hr {
+.wl-content hr {
   border-style: none !important;
   background-color: transparent !important;
 }
-.gt-header-preview.markdown-body pre,
-.gt-comment-content .gt-comment-body.markdown-body pre,
-.gt-header-preview.markdown-body code,
-.gt-comment-content .gt-comment-body.markdown-body code {
+.wl-content pre,
+.wl-content code {
   font-family: $font-code !important;
   font-size: 95% !important;
   transition: 0.3s;
   word-break: break-word;
 }
-.gt-header-preview.markdown-body code:not(pre code),
-.gt-comment-content .gt-comment-body.markdown-body code:not(pre code) {
+.wl-content code:not(pre code) {
   background: var(--color-code-background) !important;
   padding: 1px 5px !important;
   border-radius: 5px !important;

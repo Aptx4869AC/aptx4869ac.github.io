@@ -61,12 +61,12 @@
     
   
   
-  
     
       
-<link rel="stylesheet" href="https://npm.webcache.cn/gitalk@1.8.0/dist/gitalk.css" integrity="sha384-X7z7PUv2B67D8sPJyzDyGZSco1ADwmdI7ed4eCGtTKkClfyDFpPL9WgAn9XVr&#x2F;Io" crossorigin="anonymous">
+<link rel="stylesheet" href="https://npm.webcache.cn/@waline/client@2.15.8/dist/waline.css" integrity="sha384-vltfZtesCdl6NYVcFVcjEaIi5RpNvZe9t7fXvq8twVtcoy+Ub9QgnxUYJmwOhYCK" crossorigin="anonymous">
 
     
+  
   
   
     
@@ -481,8 +481,18 @@ $$</p>
       
       
       
+        <a data-aos="zoom-in" href="/2025/05/25/2025/CP-ABE/#comments" class="article-comment-link">
+          <span class="post-comments-count waline-comment-count" data-path="/2025/05/25/2025/CP-ABE/" itemprop="commentCount"></span>
+          留言
+        </a>
       
       
+      
+      
+        <span data-aos="zoom-in" class="article-visitor-link">
+          <span class="waline-pageview-count" data-path="/2025/05/25/2025/CP-ABE/">0</span>
+          <em class="post-meta-item-text">阅读量</em>
+        </span>
       
       
 
@@ -491,17 +501,31 @@ $$</p>
   
   <nav id="article-nav" data-aos="fade-up">
     
+      
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          <img data-src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg6.jpg" data-sizes="auto" alt="KP-ABE" class="lazyload">
+        
+        <a href="/2025/05/25/2025/KP-ABE/"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">
+          
+            KP-ABE
+          
+        </h3>
+      </div>
+    
     
     
     <div class="article-nav-link-wrap article-nav-link-right">
       
-        <img data-src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg6.jpg" data-sizes="auto" alt="KP-ABE" class="lazyload">
+        <img data-src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg1.jpg" data-sizes="auto" alt="你好世界" class="lazyload">
       
-      <a href="/2025/05/25/2025/KP-ABE/"></a>
+      <a href="/2023/12/25/2025/hello-world/"></a>
       <div class="article-nav-caption">后一篇</div>
       <h3 class="article-nav-title">
         
-          KP-ABE
+          你好世界
         
       </h3>
     </div>
@@ -529,8 +553,8 @@ $$</p>
       <div class="comment-selector">
         <div class="comment-selector-wrap">
             
-            <div class="selector-item" data-selector="gitalk">
-              <span>gitalk</span>
+            <div class="selector-item" data-selector="waline">
+              <span>waline</span>
             </div>
             
         </div>
@@ -538,8 +562,8 @@ $$</p>
     </div>
     <div class="comment-content">
       
-        <div class="comment gitalk-comment" data-aos="fade-up"
-          id="gitalk-comment">
+        <div class="comment waline-comment" data-aos="fade-up"
+          id="waline-comment">
         </div>
       
     </div>
@@ -1056,7 +1080,7 @@ $$</p>
       }
     },
     waline: {
-      enable: false,
+      enable: true,
       load: async () => {
         const container = document.querySelector('.waline-comment');
         if (!container) return;
@@ -1071,7 +1095,7 @@ $$</p>
 
         window.walineInstance = walineInit({
           el: '.waline-comment',
-          serverURL: '',
+          serverURL: 'waline-server-six-omega.vercel.app',
           lang: document.documentElement.lang || 'en',
           locale: {},
           emoji: ["https://unpkg.com/@waline/emojis@1.2.0/weibo","https://unpkg.com/@waline/emojis@1.2.0/alus","https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/qq","https://unpkg.com/@waline/emojis@1.2.0/tieba","https://unpkg.com/@waline/emojis@1.2.0/tw-emoji"],
@@ -1124,7 +1148,7 @@ $$</p>
       }
     },
     gitalk: {
-      enable: true,
+      enable: false,
       load: () => {
         const container = document.querySelector('.gitalk-comment');
         if (!container) return;
