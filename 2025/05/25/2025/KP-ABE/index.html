@@ -35,16 +35,18 @@
 
   
   
-    <meta name="description" content="密钥策略属性基加密（KP-ABE, Key-Policy Attribute-Based Encryption） KP-ABE 的核心特性在于访问策略由密钥携带，而非密文   $(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$ KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&#x3D; (p, e">
+    <meta name="description" content="密钥策略属性基加密（KP-ABE, Key-Policy Attribute-Based Encryption） KP-ABE 的核心特性在于访问策略由密钥携带，而非密文。   $(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$ KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&#x3D; (p,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KP-ABE">
 <meta property="og:url" content="https://aptx4869ac.github.io/2025/05/25/2025/KP-ABE/index.html">
 <meta property="og:site_name" content="Aptx4869AC&#39;s Blog">
-<meta property="og:description" content="密钥策略属性基加密（KP-ABE, Key-Policy Attribute-Based Encryption） KP-ABE 的核心特性在于访问策略由密钥携带，而非密文   $(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$ KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&#x3D; (p, e">
+<meta property="og:description" content="密钥策略属性基加密（KP-ABE, Key-Policy Attribute-Based Encryption） KP-ABE 的核心特性在于访问策略由密钥携带，而非密文。   $(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$ KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&#x3D; (p,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-24T16:16:18.000Z">
-<meta property="article:modified_time" content="2025-07-04T06:30:14.297Z">
+<meta property="article:modified_time" content="2025-07-04T08:21:05.841Z">
 <meta property="article:author" content="Aptx4869AC">
+<meta property="article:tag" content="访问控制">
+<meta property="article:tag" content="属性基加密">
 <meta name="twitter:card" content="summary">
   
   
@@ -142,36 +144,44 @@
     
       
         <span class="main-nav-link-wrap">
-          <div class="main-nav-icon icon rotate">
+          <div class="main-nav-icon icon ">
              
-              &#xe62b;
+              
+                <img src="/images/1.png" alt="home icon" style="height: 1em;">
+              
              
           </div>
           <a class="main-nav-link" href="/">首页</a>
         </span>
       
         <span class="main-nav-link-wrap">
-          <div class="main-nav-icon icon rotate">
+          <div class="main-nav-icon icon ">
              
-              &#xe62b;
+              
+                <img src="/images/2.png" alt="archives icon" style="height: 1em;">
+              
              
           </div>
           <a class="main-nav-link" href="/archives">归档</a>
         </span>
       
         <span class="main-nav-link-wrap">
-          <div class="main-nav-icon icon rotate">
+          <div class="main-nav-icon icon ">
              
-              &#xe62b;
+              
+                <img src="/images/3.png" alt="about icon" style="height: 1em;">
+              
              
           </div>
           <a class="main-nav-link" href="/about">关于</a>
         </span>
       
         <span class="main-nav-link-wrap">
-          <div class="main-nav-icon icon rotate">
+          <div class="main-nav-icon icon ">
              
-              &#xe62b;
+              
+                <img src="/images/4.png" alt="friend icon" style="height: 1em;">
+              
              
           </div>
           <a class="main-nav-link" href="/friend">友链</a>
@@ -267,10 +277,26 @@
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">0</div>
+    <div class="sidebar-state-number">2</div>
   </div>
 </div>
 <div class="sidebar-social">
+  
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:aptx4869ac@qq.com itemprop="url" target="_blank" aria-label="email" rel="noopener external nofollow noreferrer"></a>
+    </div>
+  
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/Aptx4869AC itemprop="url" target="_blank" aria-label="github" rel="noopener external nofollow noreferrer"></a>
+    </div>
+  
+    <div class="icon-steam sidebar-social-icon">
+      <a href=https://steamcommunity.com/profiles/76561198826634377 itemprop="url" target="_blank" aria-label="steam" rel="noopener external nofollow noreferrer"></a>
+    </div>
+  
+    <div class="icon-bilibili sidebar-social-icon">
+      <a href=https://space.bilibili.com/8358393 itemprop="url" target="_blank" aria-label="bilibili" rel="noopener external nofollow noreferrer"></a>
+    </div>
   
 </div>
 <div class="sidebar-menu">
@@ -278,9 +304,11 @@
     
       <div class="sidebar-menu-link-wrap">
         <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
-        <div class="sidebar-menu-icon icon rotate">
+        <div class="sidebar-menu-icon icon ">
           
-            &#xe62b;
+            
+              <img src="/images/1.png" alt="home icon" style="width: 1em;">
+            
           
         </div>
         <div class="sidebar-menu-link">首页</div>
@@ -288,9 +316,11 @@
     
       <div class="sidebar-menu-link-wrap">
         <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
-        <div class="sidebar-menu-icon icon rotate">
+        <div class="sidebar-menu-icon icon ">
           
-            &#xe62b;
+            
+              <img src="/images/2.png" alt="archives icon" style="width: 1em;">
+            
           
         </div>
         <div class="sidebar-menu-link">归档</div>
@@ -298,9 +328,11 @@
     
       <div class="sidebar-menu-link-wrap">
         <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
-        <div class="sidebar-menu-icon icon rotate">
+        <div class="sidebar-menu-icon icon ">
           
-            &#xe62b;
+            
+              <img src="/images/3.png" alt="about icon" style="width: 1em;">
+            
           
         </div>
         <div class="sidebar-menu-link">关于</div>
@@ -308,9 +340,11 @@
     
       <div class="sidebar-menu-link-wrap">
         <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-        <div class="sidebar-menu-icon icon rotate">
+        <div class="sidebar-menu-icon icon ">
           
-            &#xe62b;
+            
+              <img src="/images/4.png" alt="friend icon" style="width: 1em;">
+            
           
         </div>
         <div class="sidebar-menu-link">友链</div>
@@ -362,7 +396,7 @@
       
       
         <h2 id="密钥策略属性基加密kp-abe-key-policy-attribute-based-encryption"><a class="markdownIt-Anchor" href="#密钥策略属性基加密kp-abe-key-policy-attribute-based-encryption"></a> 密钥策略属性基加密（KP-ABE, Key-Policy Attribute-Based Encryption）</h2>
-<p>KP-ABE 的核心特性在于访问策略由密钥携带，而非密文</p>
+<p>KP-ABE 的核心特性在于访问策略由密钥携带，而非密文。</p>
 <ol>
 <li>
 <p>$(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$</p>
@@ -455,23 +489,39 @@ $$</p>
         </span>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E5%B1%9E%E6%80%A7%E5%9F%BA%E5%8A%A0%E5%AF%86/" rel="tag">属性基加密</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" rel="tag">访问控制</a></li></ul>
+
 
     </footer>
   </div>
   
   <nav id="article-nav" data-aos="fade-up">
     
+      
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          <img data-src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg4.jpg" data-sizes="auto" alt="CP-ABE" class="lazyload">
+        
+        <a href="/2025/05/25/2025/CP-ABE/"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">
+          
+            CP-ABE
+          
+        </h3>
+      </div>
+    
     
     
     <div class="article-nav-link-wrap article-nav-link-right">
       
-        <img data-src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg4.jpg" data-sizes="auto" alt="CP-ABE" class="lazyload">
+        <img data-src="https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg1.jpg" data-sizes="auto" alt="你好世界" class="lazyload">
       
-      <a href="/2025/05/25/2025/CP-ABE/"></a>
+      <a href="/2023/12/25/2025/hello-world/"></a>
       <div class="article-nav-caption">后一篇</div>
       <h3 class="article-nav-title">
         
-          CP-ABE
+          你好世界
         
       </h3>
     </div>
@@ -600,10 +650,26 @@ $$</p>
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">0</div>
+    <div class="sidebar-state-number">2</div>
   </div>
 </div>
 <div class="sidebar-social">
+  
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:aptx4869ac@qq.com itemprop="url" target="_blank" aria-label="email" rel="noopener external nofollow noreferrer"></a>
+    </div>
+  
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/Aptx4869AC itemprop="url" target="_blank" aria-label="github" rel="noopener external nofollow noreferrer"></a>
+    </div>
+  
+    <div class="icon-steam sidebar-social-icon">
+      <a href=https://steamcommunity.com/profiles/76561198826634377 itemprop="url" target="_blank" aria-label="steam" rel="noopener external nofollow noreferrer"></a>
+    </div>
+  
+    <div class="icon-bilibili sidebar-social-icon">
+      <a href=https://space.bilibili.com/8358393 itemprop="url" target="_blank" aria-label="bilibili" rel="noopener external nofollow noreferrer"></a>
+    </div>
   
 </div>
 <div class="sidebar-menu">
@@ -611,9 +677,11 @@ $$</p>
     
       <div class="sidebar-menu-link-wrap">
         <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
-        <div class="sidebar-menu-icon icon rotate">
+        <div class="sidebar-menu-icon icon ">
           
-            &#xe62b;
+            
+              <img src="/images/1.png" alt="home icon" style="width: 1em;">
+            
           
         </div>
         <div class="sidebar-menu-link">首页</div>
@@ -621,9 +689,11 @@ $$</p>
     
       <div class="sidebar-menu-link-wrap">
         <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
-        <div class="sidebar-menu-icon icon rotate">
+        <div class="sidebar-menu-icon icon ">
           
-            &#xe62b;
+            
+              <img src="/images/2.png" alt="archives icon" style="width: 1em;">
+            
           
         </div>
         <div class="sidebar-menu-link">归档</div>
@@ -631,9 +701,11 @@ $$</p>
     
       <div class="sidebar-menu-link-wrap">
         <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
-        <div class="sidebar-menu-icon icon rotate">
+        <div class="sidebar-menu-icon icon ">
           
-            &#xe62b;
+            
+              <img src="/images/3.png" alt="about icon" style="width: 1em;">
+            
           
         </div>
         <div class="sidebar-menu-link">关于</div>
@@ -641,9 +713,11 @@ $$</p>
     
       <div class="sidebar-menu-link-wrap">
         <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-        <div class="sidebar-menu-icon icon rotate">
+        <div class="sidebar-menu-icon icon ">
           
-            &#xe62b;
+            
+              <img src="/images/4.png" alt="friend icon" style="width: 1em;">
+            
           
         </div>
         <div class="sidebar-menu-link">友链</div>
@@ -911,9 +985,9 @@ $$</p>
           url: "https://aptx4869ac.github.io/2025/05/25/2025/KP-ABE/",
           excerpt: "",
           description: "",
-          stripContent: " 密钥策略属性基加密（KP-ABE, Key-Policy Attribute-Based Encryption） KP-ABE 的核心特性在于访问策略由密钥携带，而非密文   $(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$ KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&amp;#x3D; (p, e, G_1, G_2, G_T, g_1, g_2)$ 随机选择一个整数 $\alpha \left",
+          stripContent: " 密钥策略属性基加密（KP-ABE, Key-Policy Attribute-Based Encryption） KP-ABE 的核心特性在于访问策略由密钥携带，而非密文。   $(pk, msk) \leftarrow \text{Setup}(1^{\lambda})$ KGC 运行 $\text{GroupGen}(1^{\lambda})$ 生成群参数 $par :&amp;#x3D; (p, e, G_1, G_2, G_T, g_1, g_2)$ 随机选择一个整数 $\alpha \lef",
           date: "Sun May 25 2025 00:16:18 GMT+0800",
-          updated: "Fri Jul 04 2025 14:30:14 GMT+0800",
+          updated: "Fri Jul 04 2025 16:21:05 GMT+0800",
           cover: "https://raw.githubusercontent.com/Aptx4869AC/imgs/main/blog/bg6.jpg",
         };
       </script>
